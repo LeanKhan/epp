@@ -11,7 +11,25 @@
 .   Pink: #FF4576
 .   Landing background: #FFFCD4 
 */
-btn {
-    background-color: #FF4576 !important;
+.landing {
+    overflow: hidden;
+}
+img {
+    width: 60%;
+}
+button {
+    background-color: #ff4576 !important;
     padding: 20px;
+    width: 200px;
+    font-size: 20px; 
+    font-weight: 500;
+}
+.intro {
+    background-color: #FFFCD4;
+}
+div.row {
+    height: 100vh;
+}
+div.login {
+    background-color: #ffffff;
 }
