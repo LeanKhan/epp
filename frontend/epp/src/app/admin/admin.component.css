@@ -1,0 +1,44 @@
+/*  Navbar Component styles */
+/* Colors => 
+.
+.
+.
+.
+.   Body background: #F7F8FB
+.   Brand yellow: #FFEF29
+.   White: #FFFFFF
+.   Grey: #F2F2F2
+.   Pink: #FF4576
+.   Landing background: #FFFCD4 
+*/
+
+div.main {
+    height: 100vh;
+    overflow: hidden;
+    /* width: 100vw;  */
+}
+div.row .col-md-2 {
+    margin-top: 100px;
+    /* overflow: hidden; */
+    height: 100vh;
+}
+div.row .col-md-10 {
+    height: 100vh;
+    padding-top: 100px;
+    overflow-y: auto;
+}
+div.row .col-md-2 .list-group-item {
+  height: 60%;
+  padding: 0px;
+  background: none !important;
+  border: none;
+  border-radius: 0px !important;
+  border-left: 5px solid #FFEF29;
+  margin-bottom: 6px;
+  transition: border-left cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-size: 22px;
+  font-weight: 500;
+}
+div.row .col-md-2 .list-group-item a:hover{
+    background-color: #ffffff;
+}
