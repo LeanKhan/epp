@@ -7,7 +7,12 @@ const Product = new mongoose.Schema({
         {url: String}
     ],
     description: String,
-    amenities: String,
+    amenities: {
+        food: Boolean,
+        parking: Boolean,
+        shower: Boolean,
+        wifi: Boolean
+    },
     price: Number,
     location: String,
     status: {
