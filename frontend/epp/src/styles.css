@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles */
+/* Colors => 
+.
+.
+.
+.
+.   Body background: #F7F8FB
+.   Brand yellow: #FFEF29
+.   White: #FFFFFF
+.   Grey: #F2F2F2
+.   Pink: #FF4576 
+*/
+
+body {
+    background-color: #f7f8fb;
+}
