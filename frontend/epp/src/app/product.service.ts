@@ -11,6 +11,9 @@ export class ProductService {
   constructor(private _http:HttpClient) { }
 
   addProduct(url,payload){
-    return this._http.post(url, payload);
+    return this._http.post(`${this.baseUrl}${url}`, payload);
+  }
+  allProducts(){
+    return this._http.get(`${this.baseUrl}/products`);
   }
 }

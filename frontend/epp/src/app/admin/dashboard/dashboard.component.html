@@ -1,6 +1,69 @@
 <div class="container">
   <div class="d-flex flex-md-row justify-content-between">
     <h4 class="display-4">Dashboard</h4>
-    <button class="btn btn-info" (click)="newProduct()">New</button>
+    <button class="btn btn-info" (click)="goToNewProduct()">New</button>
   </div>
-</div>
+
+  <!-- Products Table -->
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          #
+        </th>
+        <!-- <th scope="col">
+          Picture
+        </th> -->
+        <th scope="col">
+          Name
+        </th>
+        <th scope="col">
+          City
+        </th>
+        <th scope="col">
+          Category
+        </th>
+        <th scope="col">
+          Price
+        </th>
+        <th scope="col">
+          Status
+        </th>
+        <th scope="col">
+            Options
+        </th>
+      </tr> 
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let product of allProducts;index as i">
+        <th scope="row">
+          {{i}}
+        </th>
+        <td>
+          {{product.name}}
+        </td>
+        <td>
+          {{product.location}}
+        </td>
+        <td>
+          <b>{{product.category}}</b>
+        </td>
+        <td>
+          {{product.price}}
+        </td>
+        <td>
+          {{product.status}}
+        </td>
+        <td>
+          <div class="d-flex flex-column">
+            <button class="btn btn-info">Edit</button>
+            <button class="btn btn-danger">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>

@@ -10,7 +10,7 @@ userRouter.post('/products/add-product',(req, res)=>{
         if(err){
             res.status(400).json({product: 'Could not create new document'});
         }
-            res.status(200).json({product: 'Created successfully'});
+            res.status(200).json({product: 'Product created successfully'});
     });
 });
 

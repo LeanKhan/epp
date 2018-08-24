@@ -9,13 +9,22 @@ import {ProductService} from '../../product.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private _productService:ProductService) { }
 
   ngOnInit() {
+    this._productService.allProducts().subscribe((res)=>{
+      this.allProducts = res;
+    })
   }
+  allProducts:any;
 
-  newProduct(){
+  goToNewProduct(){
     this.router.navigateByUrl('/admin/add-product');
+  }
+  get getAllProducts(){
+    return this._productService.allProducts().subscribe((res)=>{
+      this.allProducts = res;
+    })
   }
 
 }
