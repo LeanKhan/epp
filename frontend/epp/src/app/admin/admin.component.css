@@ -24,7 +24,7 @@ div.row .col-md-2 {
 }
 div.row .col-md-10 {
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 90px;
     overflow-y: auto;
 }
 div.row .col-md-2 .list-group-item {

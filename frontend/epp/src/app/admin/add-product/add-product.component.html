@@ -1,3 +1,131 @@
-<p>
-  add-product works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="display-4">Add Product</h3><hr>
+  
+        <!-- Edit Picture-->
+        <label for="addPicture"><h3>Picture</h3></label>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="url" id="addPicture">
+        </div>
+
+        <!-- Add name -->
+        <label for="addName"><h3>Name</h3></label>
+
+        <div class="input-group mb-3">
+          <input type="text" name="name" class="form-control" id="addName">
+        </div>
+
+        <!-- Add location -->
+        <label for="addLocation"><h3>Location</h3></label>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="location" id="addLocation">
+        </div>
+
+        <!-- Add Description -->
+        <label for="addDescription"><h3>Description</h3></label>
+
+        <div class="input-group mb-3">
+          <textarea class="form-control" name="description" id="addDescription"></textarea>
+        </div>
+
+        <!-- Add Category -->
+        <label for="selectCategory"><h3>Category</h3></label>
+        <div class="input-group mb-3">
+          <ul class="list-group d-flex flex-md-row" id="selectCategory">
+
+
+            <li class="input-group-text mr-3">
+              <div class="input-group-prepend mr-2">Boys Quarter</div>
+              <input type="radio" name="bq">
+            </li>
+
+            <li class="input-group-text mx-3">
+              <div class="input-group-prepend mr-2">Room</div>
+              <input type="radio" name="room">
+            </li>
+
+            <li class="input-group-text mx-3">
+              <div class="input-group-prepend mr-2">House</div>
+              <input type="radio" name="house">
+            </li>
+
+            <li class="input-group-text ml-3">
+              <div class="input-group-prepend mr-2">Bed</div>
+              <input type="radio" name="bed">
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- Add Price -->
+        <label for="addPrice"><h3>Price</h3></label>
+
+        <div class="input-group mb-3">
+          <input class="form-control" name="price" type="number" id="addPrice">
+
+          <div class="input-group-append">
+            <span class="input-group-text">Naira</span>
+          </div>
+
+        </div>
+
+        <!-- Add Amenities -->
+        <label for="selectAmenities"><h3>Amenities</h3></label>
+
+        <div class="input-group mb-3">
+
+          <ul class="list-group d-flex flex-md-row" id="selectAmenities">
+
+            <li class="input-group-text mr-3">
+              <div class="input-group-prepend mr-2">Feeding</div>
+              <input type="checkbox" name="feeding">
+            </li>
+
+            <li class="input-group-text mx-3">
+                <div class="input-group-prepend mr-2">Parking</div>
+                <input type="checkbox" name="parking">
+            </li>
+
+            <li class="input-group-text mx-3">
+                <div class="input-group-prepend mr-2">Shower</div>
+                <input type="checkbox" name="shower">
+            </li>
+
+            <li class="input-group-text mx-3">
+              <div class="input-group-prepend mr-2">WiFi</div>
+              <input type="checkbox" name="wifi">
+            </li>
+           
+          </ul>
+        </div>
+
+        <!-- Add Address -->
+        <label for="addAddress"><h3>Address</h3></label>
+
+        <div class="input-group mb-3">
+          <input type="text" name="address" class="form-control" id="addAddress">
+        </div>
+
+    </div>
+  </div>
+
+  <!-- Button row -->
+  <div class="row">
+    <div class="col-md-12 d-flex flex-md-row justify-content-end my-4">
+      <div>
+        <button class="btn btn-light">
+          Discard
+        </button>
+
+        <button class="btn btn-success">
+          Save
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
