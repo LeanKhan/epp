@@ -10,7 +10,7 @@ export class ProductService {
 
   constructor(private _http:HttpClient) { }
 
-  // Add a singl product
+  // Add a single product
   addProduct(url,payload){
     return this._http.post(`${this.baseUrl}${url}`, payload);
   }
@@ -21,5 +21,13 @@ export class ProductService {
   // Delete a product
   deleteProduct(id){
     return this._http.get(`${this.baseUrl}/products/delete/${id}`);
+  }
+  // Get a single product
+  getProduct(id){
+    return this._http.get(`${this.baseUrl}/products/${id}`);
+  }
+  // Update a single product
+  updateProduct(id, payload){
+    return this._http.post(`${this.baseUrl}/products/update/${id}`, payload);
   }
 }

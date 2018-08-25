@@ -31,4 +31,22 @@ userRouter.get('/products/delete/:id', (req,res)=>{
     })
 });
 
+// Endpoint for getting a single product
+userRouter.get('/products/:id', (req,res)=>{
+    Product.findById(req.params.id, (err,product)=>{
+        if(err){throw err; res.status(400).send({failed: "Could not get document"})}
+        res.status(200).json(product);
+    })
+});
+// Endpoint for updating a single product
+userRouter.post('/products/update/:id', (req,res)=>{
+    Product.findByIdAndUpdate(req.params.id,req.body,(err)=>{
+        if(err){
+            throw err;
+            res.status(400).send({failed: "Could not update document"})
+        }
+        res.status(200).send({product: "Product updated successfully!"})
+    })
+})
+
 module.exports = userRouter;

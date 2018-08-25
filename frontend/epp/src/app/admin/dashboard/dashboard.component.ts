@@ -9,7 +9,9 @@ import {ProductService} from '../../product.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router, private _productService:ProductService) { }
+  constructor(private router:Router, private _productService:ProductService) {
+    this.router.paramsInheritanceStrategy = "always";
+   }
 
   ngOnInit() {
     this._productService.allProducts().subscribe((res)=>{
@@ -21,6 +23,10 @@ export class DashboardComponent implements OnInit {
   goToNewProduct(){
     this.router.navigateByUrl('/admin/add-product');
   }
+  goToEditProduct(id){
+    this.router.navigateByUrl(`/admin/edit-product/${id}`); 
+  }
+  // Get all products
   get getAllProducts(){
     return this._productService.allProducts().subscribe((res)=>{
       this.allProducts = res;

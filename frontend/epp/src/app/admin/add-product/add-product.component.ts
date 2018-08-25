@@ -72,7 +72,7 @@ export class AddProductComponent implements OnInit {
   addProduct(){
     this._productService.addProduct(this.addProductUrl, this.getForm).subscribe((res)=>{
       alert(JSON.stringify(res));
-    })
+    });
     this.productForm.setValue(
       {"name":null,
       "category":null,
