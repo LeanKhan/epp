@@ -12,7 +12,7 @@ export class AddProductComponent implements OnInit {
   productForm: FormGroup;
   constructor(private _productService: ProductService) { 
     this.productForm = new FormGroup({
-      'name': new FormControl(null, [Validators.required, Validators.minLength(10)]),
+      'name': new FormControl(null, Validators.required),
       'category': new FormControl(null, Validators.required),
       'description': new FormControl(null, Validators.required),
       'amenities': new FormGroup({
@@ -21,10 +21,10 @@ export class AddProductComponent implements OnInit {
         'shower': new FormControl(false),
         'wifi': new FormControl(false)
       }),
-      'price': new FormControl('000'),
+      'price': new FormControl(null, Validators.required),
       'location': new FormControl(null, Validators.required),
       'address': new FormControl(null, Validators.required)
-    })
+    }, Validators.required)
   }
 
   ngOnInit() {
@@ -33,6 +33,9 @@ export class AddProductComponent implements OnInit {
   // Get the entire form
   get getForm(){
     return this.productForm.value;
+  }
+  get getFormGroup(){
+    return this.productForm;
   }
 
 
@@ -68,7 +71,7 @@ export class AddProductComponent implements OnInit {
 
   addProduct(){
     this._productService.addProduct(this.addProductUrl, this.getForm).subscribe((res)=>{
-      console.log(res);
+      alert(JSON.stringify(res));
     })
     this.productForm.setValue(
       {"name":null,
@@ -81,4 +84,15 @@ export class AddProductComponent implements OnInit {
     );
   }
   data;
+  clearForm(){
+    this.productForm.setValue(
+      {"name":null,
+      "category":null,
+      "description":null,
+      "amenities":{"food":false,"parking":false,"shower":false,"wifi":false},
+      "price":"000",
+      "location":null,
+      "address":null} 
+    )
+  }
 }

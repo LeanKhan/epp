@@ -25,6 +25,13 @@ export class DashboardComponent implements OnInit {
     return this._productService.allProducts().subscribe((res)=>{
       this.allProducts = res;
     })
-  }
+  };
 
+  // Delete a single product
+  deleteProduct(id,i){
+    this._productService.deleteProduct(id).subscribe((res)=>{
+      alert(JSON.stringify(res));
+    })
+    this.allProducts.splice(i,1)
+  }
 }

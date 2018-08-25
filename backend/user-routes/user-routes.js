@@ -22,4 +22,13 @@ userRouter.get('/products',(req, res)=>{
     })
 });
 
+// Endpoint for deleting a product
+
+userRouter.get('/products/delete/:id', (req,res)=>{
+    Product.findByIdAndRemove(req.params.id,(err)=>{
+        if(err)throw err;
+        res.status(200).send({product: 'Product deleted successfully'});
+    })
+});
+
 module.exports = userRouter;

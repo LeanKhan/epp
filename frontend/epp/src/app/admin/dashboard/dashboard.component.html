@@ -2,11 +2,11 @@
   <div class="d-flex flex-md-row justify-content-between">
     <h4 class="display-4">Dashboard</h4>
     <button class="btn btn-info" (click)="goToNewProduct()">New</button>
-  </div>
+  </div><hr>
 
   <!-- Products Table -->
 
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">
@@ -39,7 +39,7 @@
     <tbody>
       <tr *ngFor="let product of allProducts;index as i">
         <th scope="row">
-          {{i}}
+          {{i+1}}
         </th>
         <td>
           {{product.name}}
@@ -48,7 +48,7 @@
           {{product.location}}
         </td>
         <td>
-          <b>{{product.category}}</b>
+          <b>{{product.category.toUpperCase()}}</b>
         </td>
         <td>
           {{product.price}}
@@ -57,9 +57,9 @@
           {{product.status}}
         </td>
         <td>
-          <div class="d-flex flex-column">
-            <button class="btn btn-info">Edit</button>
-            <button class="btn btn-danger">Delete</button>
+          <div class="d-flex flex-column" id="{{product._id}}" #productOptions>
+            <button class="btn btn-info btn-sm">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteProduct(product._id, i)">Delete</button>
           </div>
         </td>
       </tr>
