@@ -7,11 +7,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import {NavComponent} from './nav/nav.component';
-import { ProductPageComponent } from './product-page/product-page.component';
+import { ProductPageComponent } from './customer/product-page/product-page.component';
 import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { EditProductComponent } from './admin/edit-product/edit-product.component';
+import { ProductDetailsComponent } from './customer/product-details/product-details.component';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { EditProductComponent } from './admin/edit-product/edit-product.componen
     AdminComponent,
     DashboardComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    ProductDetailsComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,

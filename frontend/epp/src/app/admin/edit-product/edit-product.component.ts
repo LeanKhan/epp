@@ -92,8 +92,13 @@ export class EditProductComponent implements OnInit {
   // Update form function
   updateProduct(){
     this._productService.updateProduct(this.thisId, this.getForm).subscribe((res)=>{
-      console.log(res)
+      console.log(res);
+      this.goToDashboard();
     });
+  }
+  
+  // Navigate to Dashboard
+  goToDashboard(){
     this.router.navigateByUrl('/admin/dashboard');
   }
 

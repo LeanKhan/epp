@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
   goToEditProduct(id){
     this.router.navigateByUrl(`/admin/edit-product/${id}`); 
   }
+  
   // Get all products
   get getAllProducts(){
     return this._productService.allProducts().subscribe((res)=>{
