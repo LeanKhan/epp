@@ -1,10 +1,10 @@
 # epp. eCommerce CRUD App
-Epp is an eCommerce site for squatters. Employs MongoDB, Angular6, Express and NodeJS. 
-===============
+#### Epp is an eCommerce site for squatters. Employs MongoDB, Angular6, Express and NodeJS. 
 
-MLabs = Cloud based MongoDB
-Cloudinary = Photo deployment and server
-Heroku = App deployment
+
++ MLabs = Cloud based MongoDB
++ Cloudinary = Photo deployment and server
++ Heroku = App deployment
 
 There are two general users. Customer and Admin:
 #### Customers can
