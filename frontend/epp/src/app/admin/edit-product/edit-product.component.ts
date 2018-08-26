@@ -32,12 +32,10 @@ export class EditProductComponent implements OnInit {
   ngOnInit() {
     // console.log(this.router.parseUrl(this.router.url));
    this.thisRoute.paramMap.subscribe(params => {
-     console.log(params.get('id'));
      this.thisId = params.get('id');
    });
    this._productService.getProduct(this.thisId).subscribe(res=>{
     this.thisProduct = res;
-    console.log(this.thisProduct)
     this.productForm.setValue({
       "name": this.thisProduct.name,
       "category": this.thisProduct.category,

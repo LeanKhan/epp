@@ -7,7 +7,7 @@
         <div class="card mb-0" *ngFor="let product of allProducts;index as i">
             <!-- Product Image -->
             <div class="card-header d-flex align-item-start justify-content-between p-1">
-                    <button class="btn btn-danger p-1">Like</button>
+                    <button class="btn btn-danger p-1" *ngIf="user == 'customer'">Like</button>
                     <span class="inline-price">N {{product.price}}</span>
             </div>
 

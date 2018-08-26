@@ -16,6 +16,9 @@ export class AdminComponent implements OnInit {
   toDashboard(){
     this.router.navigateByUrl('/admin/dashboard');
   }
+  toProductPage(){
+    this.router.navigateByUrl('/admin/products');
+  }
  
 
 }

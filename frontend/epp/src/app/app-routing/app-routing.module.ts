@@ -16,18 +16,16 @@ const routes : Routes = [
   {path: 'landing', component: LandingComponent},
   {path: 'customer', component: CustomerComponent, children: [
     {path: '', redirectTo: 'products', pathMatch: 'full'},
-    {path: 'products', component: ProductPageComponent, children: [
-      {path: 'details/:id', component: ProductDetailsComponent}
-    ]},
+    {path: 'products', component: ProductPageComponent},
+    {path: 'products/details/:id', component: ProductDetailsComponent}
   ]},
   {path: 'admin', component: AdminComponent, children: [
     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     {path: 'dashboard', component: DashboardComponent},
     {path: 'edit-product/:id', component: EditProductComponent},
     {path: 'add-product', component: AddProductComponent},
-    {path: 'products', component: ProductPageComponent, children: [
-      {path: 'details/:id', component: ProductDetailsComponent}
-    ]}
+    {path: 'products', component: ProductPageComponent},
+    {path: 'products/details/:id', component: ProductDetailsComponent}
   ]}
 ]
 
