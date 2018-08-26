@@ -1,0 +1,85 @@
+/*  Navbar Component styles */
+/* Colors => 
+.
+.
+.
+.
+.   Body background: #F7F8FB
+.   Brand yellow: #FFEF29
+.   White: #FFFFFF
+.   Grey: #F2F2F2
+.   Pink: #FF4576
+.   Landing background: #FFFCD4 
+*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+}
+.card {
+    /* border-radius:  !important; */
+    /* box-shadow: none !important; */
+}
+.card-body {
+    height: fit-content;
+    padding: 10px;
+}
+.card-header {
+    background: url('../../../assets/img/1.jpeg');
+    background-position: center;
+    background-repeat: repeat-x;
+    height: 150px;
+}
+.inline-price {
+    border-radius: 2px;
+    padding: 5px;
+    background-color: rgba(255, 241, 41, 0.85);
+}
+@media screen and (max-width: 480px){
+    .grid-container{
+        grid-template-columns: 1fr;
+        grid-gap: 8px;
+    }
+}
+.card-title {
+    font-weight: bolder;
+}
+a b {
+    font-size: 20px;
+}
+div span {
+    font-weight: bold;
+}
+div span.text-bold {
+    height: fit-content;
+}
+.card-header :not(p){
+    height: fit-content;
+}
+div.card-footer span{
+    border-radius: 2px;
+    padding: 5px;
+    background-color: #FFEF29;
+    margin-left: 2px;
+    margin-right: 5px;
+    font-weight: 500;
+}
+.food::before{
+    content: "Food";
+}
+.parking::before{
+    content: "Parking";
+}
+.shower::before{
+    content: "Shower";
+}
+.wifi::before{
+    content: "WiFi"
+}
+/* <img src="../../../assets/img/1.jpeg" alt="product-img" style="height: 120px">
+            <div class=" d-flex align-item-start justify-content-between p-1" style="position: relative;">
+                <button class="btn btn-danger p-1">Like</button>
+                <span class="inline-price">{{product.price}}</span>
+            </div> */
