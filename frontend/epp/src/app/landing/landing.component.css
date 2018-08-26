@@ -1,0 +1,35 @@
+/*  Landing Page styles */
+/* Colors => 
+.
+.
+.
+.
+.   Body background: #F7F8FB
+.   Brand yellow: #FFEF29
+.   White: #FFFFFF
+.   Grey: #F2F2F2
+.   Pink: #FF4576
+.   Landing background: #FFFCD4 
+*/
+.landing {
+    overflow: hidden;
+}
+img {
+    width: 60%;
+}
+button {
+    background-color: #ff4576 !important;
+    padding: 20px;
+    width: 200px;
+    font-size: 20px; 
+    font-weight: 500;
+}
+.intro {
+    background-color: #FFFCD4;
+}
+div.row {
+    height: 100vh;
+}
+div.login {
+    background-color: #ffffff;
+}

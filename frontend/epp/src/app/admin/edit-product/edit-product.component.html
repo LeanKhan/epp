@@ -1,0 +1,151 @@
+<!-- <div class="alert alert-warning alert-dismissible fixed-top mt-4" role="alert" *ngIf="getAddress.value != 'yam'">
+    <strong>Holy guacamole!</strong>
+    <button type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="display-4">Edit Product</h3><hr>
+    
+          <!-- Edit Picture START-->
+            <label for="addPicture"><h3>UploadPicture</h3></label>
+         
+            <div class="input-group mb-3" id="addPicture">
+                <div class="custom-file">
+    
+                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"[(ngModel)]="data">
+                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              
+                </div>
+                <img src={{data}} alt="hi">
+            </div>
+          <!-- Edit Picture END -->
+    
+          <div [formGroup]="productForm">
+           
+            <!-- Add name -->
+              <label for="addName"><h3>Name</h3></label>
+            
+              <div class="input-group mb-3">
+                <input type="text" name="name" class="form-control" id="addName" required formControlName = "name">
+              </div>
+            
+            <!-- Add location -->
+              <label for="addLocation"><h3>Location</h3></label>
+            
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="location" id="addLocation" required formControlName="location">
+                </div>
+            
+            <!-- Add Description -->
+              <label for="addDescription"><h3>Description</h3></label>
+            
+                <div class="input-group mb-3">
+                    <textarea class="form-control" name="description" id="addDescription" required formControlName="description"></textarea>
+                  </div>
+            
+            <!-- Add Category -->
+              <label for="selectCategory"><h3>Category</h3></label>
+                <div class="input-group mb-3">
+                  <ul class="list-group d-flex flex-md-row" id="selectCategory">
+            
+            
+                    <li class="input-group-text mr-3">
+                      <div class="input-group-prepend mr-2">Boys Quarter</div>
+                      <input type="radio" name="category" value="bq" formControlName="category">
+                    </li>
+            
+                    <li class="input-group-text mx-3">
+                      <div class="input-group-prepend mr-2">Room</div>
+                      <input type="radio" name="category" value="room" formControlName="category">
+                    </li>
+            
+                    <li class="input-group-text mx-3">
+                      <div class="input-group-prepend mr-2">House</div>
+                      <input type="radio" name="category" value="house" formControlName="category">
+                    </li>
+            
+                    <li class="input-group-text ml-3">
+                      <div class="input-group-prepend mr-2">Bed</div>
+                      <input type="radio" name="category" value="bed" formControlName="category">
+                    </li>
+            
+                  </ul>
+                </div>
+            
+             <!-- Add Price -->
+                <label for="addPrice"><h3>Price</h3></label>
+            
+                  <div class="input-group mb-3">
+                    <input class="form-control" name="price" type="number" id="addPrice" formControlName="price">
+            
+                    <div class="input-group-append">
+                      <span class="input-group-text">Naira</span>
+                    </div>
+            
+                  </div>
+            
+              <!-- Add Amenities -->
+                <label for="selectAmenities"><h3>Amenities</h3></label>
+            
+                  <div class="input-group mb-3" formGroupName="amenities">
+            
+                    <ul class="list-group d-flex flex-md-row" id="selectAmenities">
+            
+                      <li class="input-group-text mr-3">
+                        <div class="input-group-prepend mr-2">Feeding</div>
+                        <input type="checkbox" name="feeding" formControlName="food">
+                      </li>
+            
+                      <li class="input-group-text mx-3">
+                          <div class="input-group-prepend mr-2">Parking</div>
+                          <input type="checkbox" name="parking" formControlName="parking">
+                      </li>
+            
+                      <li class="input-group-text mx-3">
+                          <div class="input-group-prepend mr-2">Shower</div>
+                          <input type="checkbox" name="shower" formControlName="shower">
+                      </li>
+            
+                      <li class="input-group-text mx-3">
+                          <div class="input-group-prepend mr-2">WiFi</div>
+                          <input type="checkbox" name="wifi" formControlName="wifi">
+                      </li>
+                       
+                    </ul>
+                  </div>
+            
+              <!-- Add Address -->
+                <label for="addAddress"><h3>Address</h3></label>
+            
+                  <div class="input-group mb-3">
+                    <input type="text" name="address" class="form-control" id="addAddress" required formControlName="address">
+                  </div>
+            
+          </div>
+        </div>
+    
+      </div>
+    
+      <!-- Button row -->
+      <div class="row">
+        <div class="col-md-12 d-flex flex-md-row justify-content-end my-4">
+          <div>
+    
+            <button class="btn btn-light" (click)="clearForm()" [class.disabled]="!getFormGroup.valid">
+              Discard
+            </button>
+    
+            <button class="btn btn-success" (click)="updateProduct()" [class.disabled]="!getFormGroup.valid">
+              Update
+            </button>
+    
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
