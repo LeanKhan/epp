@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
 
     this._productService.getProduct(this.thisId).subscribe(product =>{
       this.thisProduct = product;
-      document.querySelector('title').innerText = 'Products - ' + this.thisProduct.name;
+      document.querySelector('title').innerText = `${this._userService.user} - Product Details - ${this.thisProduct.name}`
     });
 
     

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ProductService} from '../../product.service';
+import {UserService} from '../../user.service';
 
 @Component({
   selector: 'app-add-product',
@@ -10,7 +11,7 @@ import {ProductService} from '../../product.service';
 export class AddProductComponent implements OnInit {
 
   productForm: FormGroup;
-  constructor(private _productService: ProductService) { 
+  constructor(private _productService: ProductService,private _userService:UserService) { 
     this.productForm = new FormGroup({
       'name': new FormControl(null, Validators.required),
       'category': new FormControl(null, Validators.required),
@@ -28,6 +29,7 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.querySelector('title').innerText = `${this._userService.user} - Add Product`;
   }
   addProductUrl = '/products/add-product';
 
@@ -101,20 +103,7 @@ export class AddProductComponent implements OnInit {
   showEvent(e: Event){
     console.log(e);
   }
-
-  // Add image
-  // uploadImage(event: Event){
-  //   let imageForm = new FormData();
-  //   let file = event.target["files"][0];
-
-  //   imageForm.append('img', file);
-  //   this._productService.addImage(imageForm).subscribe((res)=>{
-  //     console.log(res);
-  //   })
-
-  // }
   
-  data;
   clearForm(){
     this.productForm.setValue(
       {"name":null,

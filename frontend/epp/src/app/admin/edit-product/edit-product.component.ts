@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ProductService} from '../../product.service';
 import {Router, ActivatedRoute} from '@angular/router';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -13,7 +14,7 @@ export class EditProductComponent implements OnInit {
   productForm: FormGroup;
   thisProduct;
   thisId;
-    constructor(private _productService:ProductService, private router:Router, private thisRoute:ActivatedRoute) {
+    constructor(private _productService:ProductService, private router:Router, private thisRoute:ActivatedRoute, private _userService:UserService) {
       this.productForm = new FormGroup({
         'name': new FormControl(null, Validators.required),
         'category': new FormControl(null, Validators.required),
@@ -30,12 +31,14 @@ export class EditProductComponent implements OnInit {
       });
   }
   ngOnInit() {
-    // console.log(this.router.parseUrl(this.router.url));
+
    this.thisRoute.paramMap.subscribe(params => {
      this.thisId = params.get('id');
    });
+
    this._productService.getProduct(this.thisId).subscribe(res=>{
     this.thisProduct = res;
+    document.querySelector('title').innerText = `${this._userService.user} - Edit Product - ${this.thisProduct.name}`
     this.productForm.setValue({
       "name": this.thisProduct.name,
       "category": this.thisProduct.category,
@@ -45,8 +48,8 @@ export class EditProductComponent implements OnInit {
       "location": this.thisProduct.location,
       "address": this.thisProduct.address
     });
+    
   });
-
   
   }
 
@@ -94,7 +97,7 @@ export class EditProductComponent implements OnInit {
       this.goToDashboard();
     });
   }
-  
+
   // Navigate to Dashboard
   goToDashboard(){
     this.router.navigateByUrl('/admin/dashboard');
