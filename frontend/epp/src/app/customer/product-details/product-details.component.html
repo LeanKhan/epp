@@ -1,3 +1,66 @@
-<p>
-  product-details works!
-</p>
+<div class="container mb-3">
+
+  <div class="row">
+
+    <div class="col-md-9">
+
+        <!-- Product details -->
+        <ul class="list-group">
+
+          <li class="list-group-item" id="product-image">
+
+             <!-- Product preview -->
+            <div class="thumbnail">
+              <img src="../../../assets/img/1.jpeg" alt="{{thisProduct.name}}">
+            </div>
+    
+          </li>
+
+          <li class="list-group-item" id="title">
+            <div class="d-flex justify-content-between flex-row">
+  
+              <div class="d-flex flex-column">
+              <div class="title-class mb-4">
+                <h3 class="display-5">{{thisProduct.name}}</h3><span class="text-primary px-3">{{thisProduct.status.toUpperCase()}}</span>
+              </div>
+                <h5 class="text-muted">{{thisProduct.address}} {{thisProduct.location}}</h5>
+              </div>
+  
+              <div class="d-flex flex-column">
+                <button class="btn btn-warning" *ngIf="thisUser == 'customer'">BOOK</button>
+                <div class="py-2">
+                    <h6 class="text-success h3">N {{thisProduct.price}}</h6><span class="text-muted px-2">per night</span>
+                </div>
+              </div>
+  
+            </div>
+  
+          </li>
+
+          <li id="category" class="list-group-item">
+              <h4 class="display-5 mb-4">Category</h4>
+              <h5 class="text-muted"><span>{{thisProduct.category.toUpperCase()}}</span></h5>
+          </li>
+
+          <li id="description" class="list-group-item">
+              <h4 class="display-5 mb-4">Description</h4>
+              <h5 class="text-muted">{{thisProduct.description}}</h5>
+          </li>
+    
+            <li id="amenities" class="list-group-item">
+              <h4 class="display-5 mb-4">Amenities</h4>
+              <span class="food text-muted" *ngIf="thisProduct.amenities.food"><i class="fas fa-utensils mx-2"></i></span>
+              <span class="parking text-muted" *ngIf="thisProduct.amenities.parking"><i class="fas fa-parking mx-2"></i></span>
+              <span class="shower text-muted" *ngIf="thisProduct.amenities.shower"><i class="fas fa-shower mx-2"></i></span>
+              <span class="wifi text-muted" *ngIf="thisProduct.amenities.wifi"><i class="fas fa-wifi mx-2"></i></span>
+            </li>
+  
+          
+  
+        </ul>  
+
+    </div>
+
+  </div>
+
+</div>

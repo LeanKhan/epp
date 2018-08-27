@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {AppRoutingModule} from '../app/app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -33,7 +34,8 @@ import { CustomerComponent } from './customer/customer.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

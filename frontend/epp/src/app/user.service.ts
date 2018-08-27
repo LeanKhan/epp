@@ -15,7 +15,4 @@ export class UserService {
     localStorage.setItem("appUser", u);
     this.user = u;
   }
-  // get thisUser(){
-  //   return localStorage.getItem("appUser");
-  // }
 }

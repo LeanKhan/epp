@@ -1,7 +1,7 @@
 <div class="container">
   <div class="d-flex flex-md-row justify-content-between">
     <h4 class="display-4">Dashboard</h4>
-    <button class="btn btn-info" (click)="goToNewProduct()">New</button>
+    <button class="btn btn-info" (click)="goToNewProduct()"><i class="fas fa-plus fa-3x "></i></button>
   </div><hr>
 
   <!-- Products Table -->
@@ -58,8 +58,8 @@
         </td>
         <td>
           <div class="d-flex flex-column">
-            <button class="btn btn-info btn-sm" (click)="goToEditProduct(product._id)">Edit</button>
-            <button class="btn btn-danger btn-sm" (click)="deleteProduct(product._id, i)">Delete</button>
+            <button class="btn btn-info btn-sm" (click)="goToEditProduct(product._id)" ><b>Edit</b></button>
+            <button class="btn btn-danger btn-sm" (click)="deleteProduct(product._id, i)"><b>Delete</b></button>
           </div>
         </td>
       </tr>

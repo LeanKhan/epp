@@ -12,6 +12,8 @@ export class LandingComponent implements OnInit {
   constructor(private _userService:UserService, private router:Router) { }
 
   ngOnInit() {
+    document.querySelector('title').innerText = "Epp | Landing";
+
   }
   setToCustomer(){
     this._userService.setUser('customer');

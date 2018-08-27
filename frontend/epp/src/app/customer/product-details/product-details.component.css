@@ -1,0 +1,64 @@
+/*  Navbar Component styles */
+/* Colors => 
+.
+.
+.
+.
+.   Body background: #F7F8FB
+.   Brand yellow: #FFEF29
+.   White: #FFFFFF
+.   Grey: #F2F2F2
+.   Pink: #FF4576
+.   Landing background: #FFFCD4 
+*/
+
+div li#amenities span{
+    border-radius: 2px;
+    padding: 5px;
+    background-color: #FFEF29;
+    margin-left: 2px;
+    margin-right: 5px;
+    font-weight: 700;
+}
+div li#category span{
+    border-radius: 2px;
+    padding: 5px;
+    background-color: #FFEF29;
+    margin-left: 2px;
+    margin-right: 5px;
+    font-weight: 700;
+}
+.food::before{
+    content: "Food";
+}
+.parking::before{
+    content: "Parking";
+}
+.shower::before{
+    content: "Shower";
+}
+.wifi::before{
+    content: "WiFi"
+}
+ul {
+    list-style-type: none;
+}
+.text-success {
+    font-weight: bolder !important;
+    display: inline !important;
+}
+div li#title h3 {
+    display: inline;
+}
+.title-class span {
+    display: inline;
+    font-weight: bolder !important;
+}
+.btn-warning{
+    font-weight: 700 !important;
+    background-color: #FFEF29 !important;
+    margin: 0px;
+    color: gray !important;
+    font-size: 1.6rem !important;
+    padding: 10px !important;
+}
