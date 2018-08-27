@@ -20,6 +20,9 @@ export class ProductPageComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    document.querySelector('title').innerText = 'Products';
+
     this._productService.allProducts().subscribe((res)=>{
       this.allProducts = res;
     })

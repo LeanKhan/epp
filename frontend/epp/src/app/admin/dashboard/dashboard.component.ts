@@ -14,6 +14,8 @@ export class DashboardComponent implements OnInit {
    }
 
   ngOnInit() {
+    document.querySelector('title').innerText = 'Dashboard';
+
     this._productService.allProducts().subscribe((res)=>{
       this.allProducts = res;
     })

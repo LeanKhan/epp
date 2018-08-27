@@ -24,9 +24,12 @@ export class ProductDetailsComponent implements OnInit {
 
     this._productService.getProduct(this.thisId).subscribe(product =>{
       this.thisProduct = product;
+      document.querySelector('title').innerText = 'Products - ' + this.thisProduct.name;
     });
 
-    this._userService.user = this.thisUser;
+    
+
+    this.thisUser = this._userService.user 
 
   }
 

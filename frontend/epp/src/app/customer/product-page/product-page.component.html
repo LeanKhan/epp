@@ -7,7 +7,7 @@
         <div class="card mb-0" *ngFor="let product of allProducts;index as i">
             <!-- Product Image -->
             <div class="card-header d-flex align-item-start justify-content-between p-1">
-                    <button class="btn btn-danger p-1" *ngIf="user == 'customer'">Like</button>
+                    <button class="btn btn-danger p-1" *ngIf="user == 'customer'"><i class="fas fa-bookmark"></i></button>
                     <span class="inline-price">N {{product.price}}</span>
             </div>
 
@@ -28,10 +28,10 @@
             <!-- Card Footer containing amenities -->
 
             <div class="card-footer bg-white border-none">
-                <span class="food" *ngIf="product.amenities.food"></span>
-                <span class="parking" *ngIf="product.amenities.parking"></span>
-                <span class="shower" *ngIf="product.amenities.shower"></span>
-                <span class="wifi" *ngIf="product.amenities.wifi"></span>
+                <span class="food" *ngIf="product.amenities.food"><i class="fas fa-utensils mx-2"></i></span>
+                <span class="parking" *ngIf="product.amenities.parking"><i class="fas fa-parking mx-2"></i></span>
+                <span class="shower" *ngIf="product.amenities.shower"><i class="fas fa-shower mx-2"></i></span>
+                <span class="wifi" *ngIf="product.amenities.wifi"><i class="fas fa-wifi mx-2"></i></span>
             </div>
 
           </div>
