@@ -1,5 +1,15 @@
 const userRouter = require('express').Router();
 const Product = require('../models/product');
+const cloudinary = require('cloudinary');
+const formidable = require('formidable');
+
+
+// Cloudinary global configuration
+cloudinary.config({
+    cloud_name: 'leankhan',
+    api_key: '324845983333785',
+    api_secret: '0c-xiFt2Fnpc5i0FqqX-37zxwVw'
+})
 
 
 // Endpoint for adding a new product
@@ -47,6 +57,20 @@ userRouter.post('/products/update/:id', (req,res)=>{
         }
         res.status(200).send({product: "Product updated successfully!"})
     })
-})
+});
+
+// Enpoint for uploading an image
+userRouter.post('/products/upload-image', async (req, res)=>{
+    
+    let form = await new formidable.IncomingForm();
+
+    form.parse(req, async (err, fields,files)=>{
+        cloudinary.uploader.upload(files.img.path, (result)=>{
+            res.status(200).send(result.url)
+        })
+    });
+
+});
+
 
 module.exports = userRouter;

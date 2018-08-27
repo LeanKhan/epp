@@ -30,6 +30,8 @@ export class AddProductComponent implements OnInit {
   ngOnInit() {
   }
   addProductUrl = '/products/add-product';
+
+  
   // Get the entire form
   get getForm(){
     return this.productForm.value;
@@ -69,20 +71,49 @@ export class AddProductComponent implements OnInit {
     return this.productForm.get('address');
   }
 
-  addProduct(){
-    this._productService.addProduct(this.addProductUrl, this.getForm).subscribe((res)=>{
-      alert(JSON.stringify(res));
-    });
-    this.productForm.setValue(
-      {"name":null,
-      "category":null,
-      "description":null,
-      "amenities":{"food":false,"parking":false,"shower":false,"wifi":false},
-      "price":"000",
-      "location":null,
-      "address":null} 
-    );
+  addProduct(event: Event){
+    let payload = this.getForm;
+    // Add Image only when Save is clicked
+    let imageForm = new FormData();
+    let file = event.target["ownerDocument"].all.inputFile["files"][0]
+
+    imageForm.append('img', file);
+    this._productService.addImage(imageForm).subscribe((res)=>{
+      console.log(res);
+      payload["pictureUrl"] = res;
+
+      this._productService.addProduct(this.addProductUrl, payload).subscribe((res)=>{
+        alert(JSON.stringify(res));
+      });
+      this.productForm.setValue(
+        {"name":null,
+        "category":null,
+        "description":null,
+        "amenities":{"food":false,"parking":false,"shower":false,"wifi":false},
+        "price":"000",
+        "location":null,
+        "address":null} 
+      );
+    })  
+
   }
+  // show Event
+  showEvent(e: Event){
+    console.log(e);
+  }
+
+  // Add image
+  // uploadImage(event: Event){
+  //   let imageForm = new FormData();
+  //   let file = event.target["files"][0];
+
+  //   imageForm.append('img', file);
+  //   this._productService.addImage(imageForm).subscribe((res)=>{
+  //     console.log(res);
+  //   })
+
+  // }
+  
   data;
   clearForm(){
     this.productForm.setValue(

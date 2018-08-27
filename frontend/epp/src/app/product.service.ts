@@ -30,4 +30,8 @@ export class ProductService {
   updateProduct(id, payload){
     return this._http.post(`${this.baseUrl}/products/update/${id}`, payload);
   }
+  // Add image
+  addImage(payload){
+    return this._http.post(`${this.baseUrl}/products/upload-image`, payload);
+  }
 }
