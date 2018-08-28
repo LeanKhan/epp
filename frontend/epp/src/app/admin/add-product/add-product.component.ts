@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ProductService} from '../../product.service';
 import {UserService} from '../../user.service';
 import {Router} from '@angular/router';
+import { load } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-add-product',
@@ -75,6 +76,8 @@ export class AddProductComponent implements OnInit {
   }
 
   addProduct(event: Event){
+    let loader = document.getElementById('loader');
+    loader.style.display = 'block';
     let payload = this.getForm;
     // Add Image only when Save is clicked
     let imageForm = new FormData();
@@ -99,7 +102,7 @@ export class AddProductComponent implements OnInit {
         "location":null,
         "address":null} 
       );
-    }, (err)=>{console.error(err)},()=>{console.log("Complete!")})  
+    }, (err)=>{console.error(err)},()=>{ loader.style.display = 'none'})  
 
   }
   // show Event

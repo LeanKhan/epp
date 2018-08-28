@@ -35,10 +35,17 @@ userRouter.get('/products',(req, res)=>{
 // Endpoint for deleting a product
 
 userRouter.get('/products/delete/:id', (req,res)=>{
+
+    Product.findById(req.params.id,(err, res)=>{
+        cloudinary.uploader.destroy(res.picture.public_id,(err)=>{
+        })
+    })
+
     Product.findByIdAndRemove(req.params.id,(err)=>{
         if(err)throw err;
         res.status(200).send({product: 'Product deleted successfully'});
-    })
+    });
+    
 });
 
 // Endpoint for getting a single product
@@ -65,9 +72,9 @@ userRouter.post('/products/upload-image', async (req, res)=>{
     let form = await new formidable.IncomingForm();
 
     form.parse(req, async (err, fields,files)=>{
-        cloudinary.uploader.upload(files.img.path, (result)=>{
+        cloudinary.uploader.upload(files.img.path,(result)=>{
             res.status(200).json({"url":result.url, "public_id": result.public_id})
-        })
+        }, {width: 760, height: 800, crop: "limit"})
     });
 
 });

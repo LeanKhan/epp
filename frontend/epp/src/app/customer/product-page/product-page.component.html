@@ -14,7 +14,7 @@
         <!-- Card containing each product -->
         <div class="card mb-0" *ngFor="let product of allProducts;index as i">
             <!-- Product Image -->
-            <div class="card-header d-flex align-item-start justify-content-between p-1" [style.background-image]="'url(' + product.pictureUrl + ')'">
+            <div class="card-header d-flex align-item-start justify-content-between p-1" [style.background-image]="'url(' + product.picture.url + ')'">
                     <button class="btn btn-danger p-1" *ngIf="user == 'customer'"><i class="fas fa-bookmark"></i></button>
                     <span class="inline-price">N {{product.price}}</span>
             </div>
