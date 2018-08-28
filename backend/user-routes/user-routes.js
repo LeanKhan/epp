@@ -66,11 +66,10 @@ userRouter.post('/products/upload-image', async (req, res)=>{
 
     form.parse(req, async (err, fields,files)=>{
         cloudinary.uploader.upload(files.img.path, (result)=>{
-            res.status(200).send(result.url)
+            res.status(200).json({"url":result.url, "public_id": result.public_id})
         })
     });
 
 });
-
 
 module.exports = userRouter;

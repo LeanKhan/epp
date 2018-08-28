@@ -1,12 +1,20 @@
 <div class="container mb-3">
     <h2>Products</h2><hr>
 
+    <!-- If no products are found -->
+    <div class="row text-center" *ngIf="allProducts.length == 0">
+        <div class="col-md-12">
+            <h3>Woops! No products yet</h3>
+        </div>
+    </div>
+
+
     <!-- Product Grid -->
-    <div class="grid-container">
+    <div class="grid-container" *ngIf="allProducts.length > 0">
         <!-- Card containing each product -->
         <div class="card mb-0" *ngFor="let product of allProducts;index as i">
             <!-- Product Image -->
-            <div class="card-header d-flex align-item-start justify-content-between p-1">
+            <div class="card-header d-flex align-item-start justify-content-between p-1" [style.background-image]="'url(' + product.pictureUrl + ')'">
                     <button class="btn btn-danger p-1" *ngIf="user == 'customer'"><i class="fas fa-bookmark"></i></button>
                     <span class="inline-price">N {{product.price}}</span>
             </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ProductService} from '../../product.service';
 import {UserService} from '../../user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -11,7 +12,7 @@ import {UserService} from '../../user.service';
 export class AddProductComponent implements OnInit {
 
   productForm: FormGroup;
-  constructor(private _productService: ProductService,private _userService:UserService) { 
+  constructor(private _productService: ProductService,private _userService:UserService,private router:Router) { 
     this.productForm = new FormGroup({
       'name': new FormControl(null, Validators.required),
       'category': new FormControl(null, Validators.required),
@@ -81,8 +82,10 @@ export class AddProductComponent implements OnInit {
 
     imageForm.append('img', file);
     this._productService.addImage(imageForm).subscribe((res)=>{
+
       console.log(res);
-      payload["pictureUrl"] = res;
+      payload["picture"] = res;
+      
 
       this._productService.addProduct(this.addProductUrl, payload).subscribe((res)=>{
         alert(JSON.stringify(res));
@@ -96,14 +99,18 @@ export class AddProductComponent implements OnInit {
         "location":null,
         "address":null} 
       );
-    })  
+    }, (err)=>{console.error(err)},()=>{console.log("Complete!")})  
 
   }
   // show Event
   showEvent(e: Event){
     console.log(e);
   }
-  
+  // Got to Dashboard
+  goToDashboard(){
+    this.router.navigateByUrl('/admin/dashboard');
+  }
+
   clearForm(){
     this.productForm.setValue(
       {"name":null,

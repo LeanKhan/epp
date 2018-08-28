@@ -7,7 +7,7 @@
   <!-- Products Table -->
 
   <table class="table table-striped">
-    <thead>
+    <thead *ngIf="allProducts.length > 0">
       <tr>
         <th scope="col">
           #
@@ -37,6 +37,7 @@
     </thead>
 
     <tbody>
+     
       <tr *ngFor="let product of allProducts;index as i">
         <th scope="row">
           {{i+1}}
@@ -64,6 +65,13 @@
         </td>
       </tr>
     </tbody>
+
+    <div *ngIf="allProducts.length == 0" class=" row text-center">
+        <div class="col-md-12">
+            <h3>Woops! No products here. Click the Add button above to add a product</h3>
+          </div>
+    </div>
+
   </table>
 
   </div>
