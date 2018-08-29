@@ -21,7 +21,7 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit() {
 
-    document.querySelector('title').innerText = 'Products';
+    document.querySelector('title').innerText = `${this._userService.user} - Products`
 
     this._productService.allProducts().subscribe((res)=>{
       this.allProducts = res;
@@ -30,7 +30,7 @@ export class ProductPageComponent implements OnInit {
   }
 
   goToProductDetails(id){
-    console.log(this.user)
+  
     if(this.user == 'customer'){ //If user is a customer go to customer route
       this.router.navigateByUrl(`${this.userUrl}/${id}`);
     }else if(this.user == 'admin'){ //If user is an admin go to admin route

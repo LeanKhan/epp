@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const Product = new mongoose.Schema({
     name: String,
     category: String,
-    picture: String,
+    picture: {
+        url: String,
+        public_id: String
+    },
     description: String,
     amenities: {
         food: Boolean,
@@ -12,7 +15,7 @@ const Product = new mongoose.Schema({
         wifi: Boolean
     },
     price: Number,
-    location: String,
+    city: String,
     status: {
         type: String,
         default: 'Open'

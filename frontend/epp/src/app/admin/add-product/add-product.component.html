@@ -11,17 +11,19 @@
       <h3 class="display-4">Add Product</h3><hr>
 
       <!-- Edit Picture START-->
+
         <label for="addPicture"><h3>UploadPicture</h3></label>
      
         <div class="input-group mb-3" id="addPicture">
             <div class="custom-file">
 
-              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"[(ngModel)]="data">
-              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              <input type="file" allows=".png, .jpeg, .jpg"class="custom-file-input" id="inputFile" aria-describedby="inputFileAddon01" name="file">
+              <label class="custom-file-label" for="inputFile">Choose file</label>
+              
               
             </div>
-            <img src={{data}} alt="hi">
         </div>
+
       <!-- Edit Picture END -->
 
       <div [formGroup]="productForm">
@@ -33,11 +35,11 @@
             <input type="text" name="name" class="form-control" id="addName" required formControlName = "name">
           </div>
         
-        <!-- Add location -->
-          <label for="addLocation"><h3>Location</h3></label>
+        <!-- Add City -->
+          <label for="addCity"><h3>City</h3></label>
         
             <div class="input-group mb-3">
-              <input type="text" class="form-control" name="location" id="addLocation" required formControlName="location">
+              <input type="text" class="form-control" name="city" id="addCity" required formControlName="city">
             </div>
         
         <!-- Add Description -->
@@ -134,13 +136,15 @@
   <div class="row">
     <div class="col-md-12 d-flex flex-md-row justify-content-end my-4">
       <div>
+        
+        <div style="display: none" id="loader"></div>
 
         <button class="btn btn-light" (click)="clearForm()" [class.disabled]="!getFormGroup.valid">
           Discard
         </button>
 
-        <button class="btn btn-success" (click)="addProduct()" [class.disabled]="!getFormGroup.valid">
-          Save
+        <button class="btn btn-success" (click)="addProduct($event)" [class.disabled]="!getFormGroup.valid">
+          Save 
         </button>
 
       </div>

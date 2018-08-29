@@ -18,16 +18,13 @@
     grid-template-rows: auto;
     grid-gap: 20px;
 }
-.card {
-    /* border-radius:  !important; */
-    /* box-shadow: none !important; */
-}
+
 .card-body {
     height: fit-content;
     padding: 10px;
 }
 .card-header {
-    background: url('../../../assets/img/1.jpeg');
+    /* background: url('../../../assets/img/1.jpeg'); */
     background-position: center;
     background-repeat: repeat-x;
     height: 150px;

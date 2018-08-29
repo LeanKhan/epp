@@ -1,5 +1,15 @@
 const userRouter = require('express').Router();
 const Product = require('../models/product');
+const cloudinary = require('cloudinary');
+const formidable = require('formidable');
+
+
+// Cloudinary global configuration
+cloudinary.config({
+    cloud_name: 'leankhan',
+    api_key: '324845983333785',
+    api_secret: '0c-xiFt2Fnpc5i0FqqX-37zxwVw'
+})
 
 
 // Endpoint for adding a new product
@@ -25,10 +35,17 @@ userRouter.get('/products',(req, res)=>{
 // Endpoint for deleting a product
 
 userRouter.get('/products/delete/:id', (req,res)=>{
+
+    Product.findById(req.params.id,(err, res)=>{
+        cloudinary.uploader.destroy(res.picture.public_id,(err)=>{
+        })
+    })
+
     Product.findByIdAndRemove(req.params.id,(err)=>{
         if(err)throw err;
         res.status(200).send({product: 'Product deleted successfully'});
-    })
+    });
+    
 });
 
 // Endpoint for getting a single product
@@ -47,6 +64,19 @@ userRouter.post('/products/update/:id', (req,res)=>{
         }
         res.status(200).send({product: "Product updated successfully!"})
     })
-})
+});
+
+// Enpoint for uploading an image
+userRouter.post('/products/upload-image', async (req, res)=>{
+    
+    let form = await new formidable.IncomingForm();
+
+    form.parse(req, async (err, fields,files)=>{
+        cloudinary.uploader.upload(files.img.path,(result)=>{
+            res.status(200).json({"url":result.url, "public_id": result.public_id})
+        }, {width: 760, height: 800, crop: "limit"})
+    });
+
+});
 
 module.exports = userRouter;
