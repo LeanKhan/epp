@@ -62,3 +62,6 @@ div li#title h3 {
     font-size: 1.6rem !important;
     padding: 10px !important;
 }
+#product-image{
+    width: fit-content;
+}

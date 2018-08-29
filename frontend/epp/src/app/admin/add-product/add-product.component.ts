@@ -23,9 +23,9 @@ export class AddProductComponent implements OnInit {
         'parking': new FormControl(false),
         'shower': new FormControl(false),
         'wifi': new FormControl(false)
-      }),
+      }, Validators.required),
       'price': new FormControl(null, Validators.required),
-      'location': new FormControl(null, Validators.required),
+      'city': new FormControl(null, Validators.required),
       'address': new FormControl(null, Validators.required)
     }, Validators.required)
   }
@@ -35,7 +35,12 @@ export class AddProductComponent implements OnInit {
   }
   addProductUrl = '/products/add-product';
 
-  
+  // Navigate to Dashboard
+  goToDashboard(){
+    this.router.navigateByUrl('/admin/dashboard');
+  }
+
+
   // Get the entire form
   get getForm(){
     return this.productForm.value;
@@ -66,9 +71,9 @@ export class AddProductComponent implements OnInit {
   get getPrice(){
     return this.productForm.get('price');
   }
-  // Get location
-  get getLocation(){
-    return this.productForm.get('location');
+  // Get city
+  get getCity(){
+    return this.productForm.get('city');
   }
   // Get address
   get getAddress(){
@@ -98,20 +103,18 @@ export class AddProductComponent implements OnInit {
         "category":null,
         "description":null,
         "amenities":{"food":false,"parking":false,"shower":false,"wifi":false},
-        "price":"000",
-        "location":null,
+        "price":null,
+        "city":null,
         "address":null} 
       );
-    }, (err)=>{console.error(err)},()=>{ loader.style.display = 'none'})  
+    }, (err)=>{console.error(err)},()=>{ loader.style.display = 'none',
+    this.goToDashboard()
+  })  
 
   }
   // show Event
   showEvent(e: Event){
     console.log(e);
-  }
-  // Got to Dashboard
-  goToDashboard(){
-    this.router.navigateByUrl('/admin/dashboard');
   }
 
   clearForm(){
@@ -120,8 +123,8 @@ export class AddProductComponent implements OnInit {
       "category":null,
       "description":null,
       "amenities":{"food":false,"parking":false,"shower":false,"wifi":false},
-      "price":"000",
-      "location":null,
+      "price":null,
+      "city":null,
       "address":null} 
     )
   }

@@ -7,23 +7,24 @@
         <!-- Product details -->
         <ul class="list-group">
 
-          <li class="list-group-item" id="product-image">
+          <li class="list-group-item mb-4 mx-auto p-0" id="product-image">
 
              <!-- Product preview -->
             <div class="thumbnail">
               <img src="{{thisProduct.picture.url}}" alt="{{thisProduct.name}}">
+              <p class="card-footer mb-0 bg-white text-muted i">Board Preview</p>
             </div>
     
           </li>
 
-          <li class="list-group-item" id="title">
+          <li class="list-group-item mb-3" id="title">
             <div class="d-flex justify-content-between flex-row">
   
               <div class="d-flex flex-column">
               <div class="title-class mb-4">
                 <h3 class="display-5">{{thisProduct.name}}</h3><span class="text-primary px-3">{{thisProduct.status.toUpperCase()}}</span>
               </div>
-                <h5 class="text-muted">{{thisProduct.address}} {{thisProduct.location}}</h5>
+                <h5 class="text-muted">{{thisProduct.address}} {{thisProduct.city}}</h5>
               </div>
   
               <div class="d-flex flex-column">
@@ -37,17 +38,17 @@
   
           </li>
 
-          <li id="category" class="list-group-item">
+          <li id="category" class="list-group-item mb-3">
               <h4 class="display-5 mb-4">Category</h4>
               <h5 class="text-muted"><span>{{thisProduct.category.toUpperCase()}}</span></h5>
           </li>
 
-          <li id="description" class="list-group-item">
+          <li id="description" class="list-group-item mb-3">
               <h4 class="display-5 mb-4">Description</h4>
               <h5 class="text-muted">{{thisProduct.description}}</h5>
           </li>
     
-            <li id="amenities" class="list-group-item">
+            <li id="amenities" class="list-group-item mb-3">
               <h4 class="display-5 mb-4">Amenities</h4>
               <span class="food text-muted" *ngIf="thisProduct.amenities.food"><i class="fas fa-utensils mx-2"></i></span>
               <span class="parking text-muted" *ngIf="thisProduct.amenities.parking"><i class="fas fa-parking mx-2"></i></span>

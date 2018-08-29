@@ -26,7 +26,7 @@ export class EditProductComponent implements OnInit {
           'wifi': new FormControl(false)
         }),
         'price': new FormControl(null, Validators.required),
-        'location': new FormControl(null, Validators.required),
+        'city': new FormControl(null, Validators.required),
         'address': new FormControl(null, Validators.required)
       });
   }
@@ -45,7 +45,7 @@ export class EditProductComponent implements OnInit {
       "description": this.thisProduct.description,
       "amenities": this.thisProduct.amenities,
       "price": this.thisProduct.price,
-      "location": this.thisProduct.location,
+      "city": this.thisProduct.city,
       "address": this.thisProduct.address
     });
     
@@ -81,9 +81,9 @@ export class EditProductComponent implements OnInit {
   get getPrice(){
     return this.productForm.get("price");
   }
-  // Get location form control
-  get getLocation(){
-    return this.productForm.get("location");
+  // Get city form control
+  get getCity(){
+    return this.productForm.get("city");
   }
   // Get address form control
   get getAddress(){
@@ -110,8 +110,8 @@ export class EditProductComponent implements OnInit {
       "category":null,
       "description":null,
       "amenities":{"food":false,"parking":false,"shower":false,"wifi":false},
-      "price":"000",
-      "location":null,
+      "price":null,
+      "city":null,
       "address":null} 
     )
   }

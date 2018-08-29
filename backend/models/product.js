@@ -15,7 +15,7 @@ const Product = new mongoose.Schema({
         wifi: Boolean
     },
     price: Number,
-    location: String,
+    city: String,
     status: {
         type: String,
         default: 'Open'
