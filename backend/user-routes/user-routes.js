@@ -27,7 +27,8 @@ userRouter.post('/products/add-product',(req, res)=>{
 // Endpoint for returning all products
 userRouter.get('/products',(req, res)=>{
     Product.find({},(err,products)=>{
-        if(err) throw err;
+        if(err) throw err
+        .catch();
         res.status(200).json(products);
     })
 });
