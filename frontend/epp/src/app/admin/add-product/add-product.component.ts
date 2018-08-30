@@ -49,7 +49,6 @@ export class AddProductComponent implements OnInit {
     return this.productForm;
   }
 
-
     // Get name form control
   get getName(){
     return this.productForm.get('name');
