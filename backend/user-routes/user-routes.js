@@ -27,7 +27,8 @@ userRouter.post('/products/add-product',(req, res)=>{
 // Endpoint for returning all products
 userRouter.get('/products',(req, res)=>{
     Product.find({},(err,products)=>{
-        if(err) throw err;
+        if(err) throw err
+        .catch();
         res.status(200).json(products);
     })
 });
@@ -59,8 +60,9 @@ userRouter.get('/products/:id', (req,res)=>{
 userRouter.post('/products/update/:id', (req,res)=>{
     Product.findByIdAndUpdate(req.params.id,req.body,(err)=>{
         if(err){
-            throw err;
-            res.status(400).send({failed: "Could not update document"})
+            throw err
+            .catch(err,res.status(400).send({failed: err}))
+            
         }
         res.status(200).send({product: "Product updated successfully!"})
     })
